@@ -15,8 +15,11 @@ import {
   Home,
   User,
   GraduationCap,
-  Briefcase,
+  Award,
+  Code2,
   FolderKanban,
+  Mail,
+  Heart,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -60,6 +63,11 @@ function App() {
       onClick: () => scrollToSection("home"),
     },
     {
+      icon: <Code2 size={24} />,
+      label: "What I Do",
+      onClick: () => scrollToSection("what-i-do"),
+    },
+    {
       icon: <User size={24} />,
       label: "About",
       onClick: () => scrollToSection("about"),
@@ -70,8 +78,8 @@ function App() {
       onClick: () => scrollToSection("education"),
     },
     {
-      icon: <Briefcase size={24} />,
-      label: "Career",
+      icon: <Award size={24} />,
+      label: "Certifications",
       onClick: () => scrollToSection("career"),
     },
     {
@@ -79,21 +87,23 @@ function App() {
       label: "Projects",
       onClick: () => scrollToSection("projects"),
     },
+    {
+      icon: <Mail size={24} />,
+      label: "Contact",
+      onClick: () => scrollToSection("contact"),
+    },
   ];
 
   return (
-    <div className="bg-background min-h-screen flex items-center justify-center">
+    <div className="app-shell bg-background">
       <StripedBackground className={"fixed z-0 blur-xs"} />
 
       <ReactLenis root>
         <Header />
 
-        <div
-          className="w-full bg-transparent max-w-6xl px-4 my-30
-          flex items-center justify-center 
-          lg:rounded-3xl backdrop-blur-xl border-gray-100 dark:border-gray-900"
-        >
-          <div className="z-10">
+        <main className="page-main">
+          <div className="page-container bg-transparent w-full max-w-6xl px-4 lg:rounded-3xl backdrop-blur-xl border-gray-100 dark:border-gray-900">
+            <div className="page-sections z-10">
             {/* Give IDs to sections */}
             <div id="home">
               <HeroSection />
@@ -111,8 +121,14 @@ function App() {
             <div id="projects">
               <ProjectsSection />
             </div>
+            </div>
           </div>
-        </div>
+        </main>
+
+        <footer className="site-footer">
+          <p>© {new Date().getFullYear()} Rizki Adhatilla Yusa. All rights reserved.</p>
+          <p className="site-footer-made">Made with <Heart size={12} /> using React &amp; TypeScript.</p>
+        </footer>
 
         {/* Dock with smooth show/hide animation */}
         <AnimatePresence>

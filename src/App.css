@@ -40,3 +40,75 @@
 
 
 
+
+
+/* Stable page layout: content grows naturally and the footer stays at the bottom. */
+html, body, #root {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+}
+body {
+  min-width: 320px;
+}
+.app-shell {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  overflow-x: clip;
+}
+.app-shell > * {
+  width: 100%;
+}
+.page-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: clamp(28px, 5vw, 64px) 0 clamp(36px, 5vw, 64px);
+}
+.page-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: min(100%, 1152px);
+  min-width: 0;
+}
+.page-sections {
+  width: 100%;
+  min-width: 0;
+}
+.site-footer {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  width: min(calc(100% - 56px), 1104px);
+  margin: auto auto 0;
+  padding: 22px 4px max(22px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .page-main { padding-top: 24px; padding-bottom: 36px; }
+  .page-container { padding-left: 0; padding-right: 0; }
+  .site-footer {
+    width: calc(100% - 40px);
+    align-items: center;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+}

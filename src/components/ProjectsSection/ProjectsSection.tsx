@@ -11,16 +11,61 @@ const projects = [
 
 export const ProjectsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState(1);
   const project = projects[activeIndex];
-  const changeProject = (direction: number) => setActiveIndex((current) => (current + direction + projects.length) % projects.length);
+
+  const changeProject = (direction: number) => {
+    setSlideDirection(direction);
+    setActiveIndex((current) => (current + direction + projects.length) % projects.length);
+  };
+
+  const selectProject = (index: number) => {
+    if (index === activeIndex) return;
+    // Choose the shortest direction for direct pagination navigation.
+    const forwardDistance = (index - activeIndex + projects.length) % projects.length;
+    setSlideDirection(forwardDistance <= projects.length / 2 ? 1 : -1);
+    setActiveIndex(index);
+  };
 
   return (
     <motion.section id="projects" className="portfolio-section projects-section" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.7 }}>
       <div className="section-heading"><p className="section-eyebrow"><FolderKanban size={12}/> SELECTED WORK</p><div className="section-heading-row"><h2>Featured <span>Projects.</span></h2><p className="section-lead">A selection of academic and personal work, shaped by curiosity and hands-on learning.</p></div></div>
       <div className="project-carousel" aria-live="polite">
         <button className="project-nav project-nav-prev" type="button" onClick={() => changeProject(-1)} aria-label="Previous project"><ChevronLeft size={22}/></button>
-        <AnimatePresence mode="sync" initial={false}>
-          <motion.article key={project.number} className="project-card project-card-featured" initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -3 }} transition={{ duration: .18, ease: "easeOut" }}>
+        <AnimatePresence mode="wait" initial={false} custom={slideDirection}>
+          <motion.article
+            key={project.number}
+            custom={slideDirection}
+            variants={{
+              enter: (direction: number) => ({
+                opacity: 0,
+                x: direction > 0 ? 90 : -90,
+                scale: 0.985,
+              }),
+              center: {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.1,
+                  ease: "easeOut"
+                },
+              },
+              exit: (direction: number) => ({
+                opacity: 0,
+                x: direction > 0 ? -90 : 90,
+                scale: 1,
+                transition: {
+                  duration: 0.1,
+                  ease: "easeIn"
+                },
+              }),
+            }}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            className="project-card project-card-featured"
+          >
             <div className="project-screenshot">
               <img src={project.screenshot} alt={`Screenshot of ${project.title}`} onError={(event) => { event.currentTarget.style.display = "none"; }} />
               <div className="project-screenshot-placeholder"><Monitor size={34}/><span>WEBSITE PREVIEW</span><small>Add screenshot file to public{project.screenshot}</small></div>
@@ -32,7 +77,7 @@ export const ProjectsSection = () => {
         </AnimatePresence>
         <button className="project-nav project-nav-next" type="button" onClick={() => changeProject(1)} aria-label="Next project"><ChevronRight size={22}/></button>
       </div>
-      <div className="project-pagination"><span>{project.number}</span><div>{projects.map((item, index) => <button key={item.number} type="button" className={index === activeIndex ? "is-active" : ""} onClick={() => setActiveIndex(index)} aria-label={`Show project ${index + 1}`}/>)}</div><span>0{projects.length}</span></div>
+      <div className="project-pagination"><span>{project.number}</span><div>{projects.map((item, index) => <button key={item.number} type="button" className={index === activeIndex ? "is-active" : ""} onClick={() => selectProject(index)} aria-label={`Show project ${index + 1}`}/>)}</div><span>0{projects.length}</span></div>
       <section className="contact-section" id="contact">
         <div className="contact-intro">
           <p className="section-eyebrow">GET IN TOUCH</p>

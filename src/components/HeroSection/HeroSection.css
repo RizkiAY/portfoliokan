@@ -31,7 +31,7 @@
 .ray-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 23px; }
 .ray-tags span { border: 1px solid rgba(150,140,160,.25); border-radius: 99px; padding: 7px 11px; color: var(--ray-muted); font-size: 10px; }
 .ray-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 30px; }
-.ray-primary-btn { display: inline-flex; align-items: center; gap: 12px; padding: 13px 19px; border-radius: 99px; background: var(--ray-ink); color: white; font-size: 12px; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s; }
+.ray-primary-btn { display: inline-flex; align-items: center; gap: 12px; padding: 13px 19px; border-radius: 99px; background: var(--ray-ink); color: rgb(0, 0, 0); font-size: 12px; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s; }
 .ray-primary-btn:hover { transform: translateY(-3px); background: #c9182b; }
 .ray-text-link { display: inline-flex; align-items: center; gap: 9px; color: var(--ray-ink); font-size: 12px; font-weight: 650; text-decoration: none; }
 .ray-text-link:hover { color: var(--ray-accent); }
