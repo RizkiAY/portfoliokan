@@ -14,10 +14,10 @@ const services = [
   },
   {
     number: "02",
-    title: "API Integration",
+    title: "Performance Optimization",
     description:
-      "Connecting applications to services and data through well-structured APIs, with attention to consistency and performance.",
-    tags: ["REST API", "JSON", "Integration"],
+      "Auditing and supercharging existing codebases for lighting-fast load times and seamless interactions.",
+    tags: ["Lighthouse", "Core Web Vitals", "Code Optimization"],
     icon: Workflow,
     tone: "red",
   },
