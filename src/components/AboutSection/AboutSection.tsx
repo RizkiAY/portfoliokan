@@ -16,6 +16,7 @@ export const AboutSection = () => (
       <div className="about-copy">
         <p>I am a fresh graduate with a Bachelor’s degree in Informatics Engineering from Universitas Putra Indonesia YPTK Padang, graduating with a GPA of 3.47/4.00 and a concentration in Artificial Intelligence. I have hands-on experience developing web applications, working with databases, integrating REST APIs, and building information-system solutions through academic and personal projects.</p>
         <p>I enjoy learning new technologies, solving technical problems, and collaborating systematically to turn requirements into useful applications. I am interested in opportunities in web development and information technology where I can contribute while continuing to grow.</p>
+        <a className="section-inline-link" href="mailto:rizkiadhatillayusa@gmail.com">Let’s start a conversation <ArrowUpRight size={16} /></a>
       </div>
     </div>
   </motion.section>

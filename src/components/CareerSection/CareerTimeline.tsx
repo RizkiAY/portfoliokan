@@ -1,5 +1,6 @@
 import { ScrollTimeline } from "../lightswind/scroll-timeline";
 import { GraduationCap, Award, Code, Globe } from "lucide-react";
+import "../AboutSection/PortfolioSections.css";
 
 export const CareerTimeline = () => {
   const careerEvents = [
@@ -40,5 +41,16 @@ export const CareerTimeline = () => {
     },
   ];
 
-  return <div id="career" className="career-timeline-theme"><ScrollTimeline events={careerEvents} title="Education & Certifications" subtitle="Academic background, professional training, and certifications" animationOrder="staggered" cardAlignment="alternating" cardVariant="elevated" parallaxIntensity={0.15} revealAnimation="fade" progressIndicator={true} lineColor="bg-primary/20" activeColor="bg-primary" progressLineWidth={3} progressLineCap="round" /></div>;
+  return (
+    <section id="career" className="career-timeline-theme portfolio-section career-section">
+      <div className="section-heading career-section-heading">
+        <p className="section-eyebrow"><Award size={13} /> ACADEMIC &amp; PROFESSIONAL GROWTH</p>
+        <div className="section-heading-row">
+          <h2>Education &amp; <span>Certifications.</span></h2>
+          <p className="section-lead">Academic milestones, professional training, and certifications that continue to shape my expertise.</p>
+        </div>
+      </div>
+      <ScrollTimeline events={careerEvents} title="" subtitle="" animationOrder="staggered" cardAlignment="alternating" cardVariant="elevated" parallaxIntensity={0.15} revealAnimation="fade" progressIndicator={true} lineColor="bg-primary/20" activeColor="bg-primary" progressLineWidth={3} progressLineCap="round" />
+    </section>
+  );
 };

@@ -135,3 +135,49 @@
  .project-nav-next { right: -2px; }
  .career-timeline-theme > div > .text-center { padding-top: 54px !important; }
 }
+
+
+/* Contact section — two-column layout inspired by the supplied reference */
+.contact-section { --contact-accent: #ef233c; display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px,5vw,70px); align-items: center; margin: 38px 0 70px; padding: clamp(28px,4vw,58px); border: 1px solid rgba(145,135,155,.22); border-radius: 34px; background: radial-gradient(circle at 0% 100%,rgba(239,35,60,.075),transparent 38%),linear-gradient(145deg,rgba(255,255,255,.94),rgba(250,249,250,.88)); box-shadow: 0 18px 55px rgba(34,25,44,.045); }
+.dark .contact-section { background: radial-gradient(circle at 0% 100%,rgba(239,35,60,.12),transparent 38%),linear-gradient(145deg,rgba(36,32,43,.94),rgba(24,22,31,.92)); }
+.contact-intro h2 { margin: 0 0 20px; color: var(--section-ink); font-size: clamp(42px,5vw,62px); line-height: 1; letter-spacing: -.065em; font-weight: 780; }
+.contact-intro h2 span { color: var(--contact-accent); }
+.contact-description { max-width: 520px; margin: 0; color: var(--section-muted); font-size: 14px; line-height: 1.75; }
+.contact-details { display: grid; gap: 19px; margin-top: 36px; }
+.contact-details > a,.contact-details > div { display: flex; align-items: center; gap: 17px; color: var(--section-muted); font-size: 13px; text-decoration: none; }
+.contact-details > a:hover { color: var(--contact-accent); }
+.contact-details > a > span,.contact-details > div > span { display: grid; place-items: center; flex: 0 0 54px; width: 54px; height: 54px; border: 1px solid rgba(145,135,155,.22); border-radius: 50%; background: rgba(255,255,255,.7); color: var(--contact-accent); box-shadow: 0 8px 25px rgba(34,25,44,.045); }
+.dark .contact-details > a > span,.dark .contact-details > div > span { background: rgba(255,255,255,.045); }
+.contact-form { display: flex; flex-direction: column; gap: 10px; padding: clamp(22px,3vw,38px); border: 1px solid rgba(145,135,155,.2); border-radius: 30px; background: rgba(255,255,255,.78); box-shadow: 0 12px 38px rgba(34,25,44,.045); }
+.dark .contact-form { background: rgba(17,16,22,.56); }
+.contact-form label { margin: 5px 0 0; color: var(--section-muted); font-size: 12px; }
+.contact-form input,.contact-form textarea { width: 100%; padding: 13px 16px; border: 1px solid rgba(145,135,155,.17); border-radius: 14px; outline: none; background: #f3f3f4; color: #292832; font: inherit; font-size: 13px; transition: border-color .2s,box-shadow .2s; }
+.contact-form input::placeholder,.contact-form textarea::placeholder { color: #a4a8b1; }
+.contact-form textarea { min-height: 130px; resize: vertical; }
+.contact-form input:focus,.contact-form textarea:focus { border-color: rgba(239,35,60,.65); box-shadow: 0 0 0 3px rgba(239,35,60,.09); }
+.dark .contact-form input,.dark .contact-form textarea { background: rgba(255,255,255,.07); color: #f4f2f6; }
+.contact-form button { display: flex; justify-content: center; align-items: center; gap: 13px; min-height: 54px; margin-top: 16px; border: 0; border-radius: 14px; background: #ef233c; color: white; font-size: 13px; font-weight: 750; cursor: pointer; box-shadow: 0 10px 28px rgba(239,35,60,.2); transition: transform .2s,background .2s; }
+.contact-form button:hover { transform: translateY(-2px); background: #d91e35; }
+.career-timeline-theme > div > .text-center h2 span { color: #ef233c !important; }
+@media (max-width: 760px) { .contact-section { grid-template-columns: 1fr; gap: 28px; margin-top: 28px; padding: 25px 20px; border-radius: 25px; } .contact-description { font-size: 12px; } .contact-details { gap: 14px; margin-top: 26px; } .contact-details > a,.contact-details > div { font-size: 11px; } .contact-details > a > span,.contact-details > div > span { flex-basis: 46px; width: 46px; height: 46px; } .contact-form { padding: 20px; border-radius: 22px; } }
+
+/* Education & Certifications heading follows the shared left-title/right-lead pattern */
+.career-section { padding-top: 92px; }
+.career-section-heading { margin-bottom: 22px; }
+.career-section .career-timeline-theme,
+.career-section > .relative { width: 100%; }
+.career-section > div:not(.career-section-heading) { width: 100%; }
+.career-section .career-timeline-theme > div > .text-center,
+.career-section > div:not(.career-section-heading) > .text-center { display: none !important; }
+.career-section .career-timeline-theme > div,
+.career-section > div:not(.career-section-heading) { min-height: 0 !important; }
+.career-section .career-timeline-theme .relative.max-w-6xl,
+.career-section > div:not(.career-section-heading) .relative.max-w-6xl { padding-top: 0 !important; }
+.career-section .career-timeline-theme .relative.max-w-6xl,
+.career-section .career-timeline-theme .relative.max-w-6xl > .relative { max-width: 100% !important; }
+.career-timeline-theme > div > .text-center { display: none !important; }
+@media (max-width: 700px) {
+  .career-section { padding-top: 68px; }
+  .career-section-heading .section-heading-row { display: block; }
+  .career-section-heading .section-lead { margin-top: 15px; }
+}

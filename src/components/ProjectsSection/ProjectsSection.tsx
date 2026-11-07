@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight, FolderKanban, ChevronLeft, ChevronRight, Monitor } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight, FolderKanban, ChevronLeft, ChevronRight, Monitor, Mail, Phone, MapPin, Send } from "lucide-react";
 import "../AboutSection/PortfolioSections.css";
 
 const projects = [
@@ -19,8 +19,8 @@ export const ProjectsSection = () => {
       <div className="section-heading"><p className="section-eyebrow"><FolderKanban size={12}/> SELECTED WORK</p><div className="section-heading-row"><h2>Featured <span>Projects.</span></h2><p className="section-lead">A selection of academic and personal work, shaped by curiosity and hands-on learning.</p></div></div>
       <div className="project-carousel" aria-live="polite">
         <button className="project-nav project-nav-prev" type="button" onClick={() => changeProject(-1)} aria-label="Previous project"><ChevronLeft size={22}/></button>
-        <AnimatePresence mode="wait">
-          <motion.article key={project.number} className="project-card project-card-featured" initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }} transition={{ duration: .32 }}>
+        <AnimatePresence mode="sync" initial={false}>
+          <motion.article key={project.number} className="project-card project-card-featured" initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -3 }} transition={{ duration: .18, ease: "easeOut" }}>
             <div className="project-screenshot">
               <img src={project.screenshot} alt={`Screenshot of ${project.title}`} onError={(event) => { event.currentTarget.style.display = "none"; }} />
               <div className="project-screenshot-placeholder"><Monitor size={34}/><span>WEBSITE PREVIEW</span><small>Add screenshot file to public{project.screenshot}</small></div>
@@ -33,7 +33,27 @@ export const ProjectsSection = () => {
         <button className="project-nav project-nav-next" type="button" onClick={() => changeProject(1)} aria-label="Next project"><ChevronRight size={22}/></button>
       </div>
       <div className="project-pagination"><span>{project.number}</span><div>{projects.map((item, index) => <button key={item.number} type="button" className={index === activeIndex ? "is-active" : ""} onClick={() => setActiveIndex(index)} aria-label={`Show project ${index + 1}`}/>)}</div><span>0{projects.length}</span></div>
-      <div className="contact-panel"><div><p className="section-eyebrow">HAVE A PROJECT IN MIND?</p><h3>Let’s build something <span>meaningful.</span></h3><p>Interested in working together or discussing an opportunity?</p></div><a href="mailto:rizkiadhatillayusa@gmail.com">Get in touch <ArrowUpRight size={16}/></a><small>Padang, West Sumatra, Indonesia · +62 822-6818-3029</small></div>
+      <section className="contact-section" id="contact">
+        <div className="contact-intro">
+          <p className="section-eyebrow">GET IN TOUCH</p>
+          <h2>Let's <span>Connect.</span></h2>
+          <p className="contact-description">Currently open for new opportunities and exciting collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+          <div className="contact-details">
+            <a href="mailto:rizkiadhatillayusa@gmail.com"><span><Mail size={21}/></span>rizkiadhatillayusa@gmail.com</a>
+            <a href="tel:+6282268183029"><span><Phone size={21}/></span>+62 822-6818-3029</a>
+            <div><span><MapPin size={21}/></span>Padang, West Sumatra, Indonesia</div>
+          </div>
+        </div>
+        <form className="contact-form" onSubmit={(event) => { event.preventDefault(); const data = new FormData(event.currentTarget); const name = String(data.get("name") || ""); const email = String(data.get("email") || ""); const message = String(data.get("message") || ""); const subject = encodeURIComponent(`Portfolio inquiry from ${name}`); const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`); window.location.href = `mailto:rizkiadhatillayusa@gmail.com?subject=${subject}&body=${body}`; }}>
+          <label htmlFor="contact-name">Your Name</label>
+          <input id="contact-name" name="name" type="text" placeholder="John Doe" required />
+          <label htmlFor="contact-email">Your Email</label>
+          <input id="contact-email" name="email" type="email" placeholder="john@example.com" required />
+          <label htmlFor="contact-message">Message</label>
+          <textarea id="contact-message" name="message" placeholder="How can I help you?" rows={5} required />
+          <button type="submit">Send Message <Send size={17}/></button>
+        </form>
+      </section>
     </motion.section>
   );
 };

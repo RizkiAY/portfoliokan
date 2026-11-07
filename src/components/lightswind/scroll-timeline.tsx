@@ -22,7 +22,7 @@ export interface TimelineEvent {
 
 export interface ScrollTimelineProps {
   events: TimelineEvent[];
-  title?: string;
+  title?: React.ReactNode;
   subtitle?: string;
   animationOrder?: "sequential" | "staggered" | "simultaneous";
   cardAlignment?: "alternating" | "left" | "right";
