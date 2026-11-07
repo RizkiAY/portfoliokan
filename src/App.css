@@ -112,3 +112,28 @@ body {
     margin-bottom: 0;
   }
 }
+
+
+/* Compact navigation dock on phones: all seven destinations stay visible. */
+@media (max-width: 640px) {
+  .portfolio-dock-panel {
+    gap: 5px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-bottom: 5px !important;
+    border-width: 1px !important;
+    height: 46px !important;
+    max-width: calc(100vw - 16px);
+  }
+  .portfolio-dock-panel > div[role="button"] {
+    flex: 0 0 34px;
+    width: 34px !important;
+    height: 34px !important;
+  }
+  .portfolio-dock-panel svg { width: 17px; height: 17px; }
+  .portfolio-dock-panel [role="tooltip"] { display: none; }
+}
+@media (max-width: 360px) {
+  .portfolio-dock-panel { gap: 3px !important; padding-left: 6px !important; padding-right: 6px !important; }
+  .portfolio-dock-panel > div[role="button"] { flex-basis: 32px; width: 32px !important; height: 32px !important; }
+}

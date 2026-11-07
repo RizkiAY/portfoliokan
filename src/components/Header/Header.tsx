@@ -6,11 +6,13 @@ import { useLenis } from "lenis/react";
 import { BorderBeam } from "../lightswind/border-beam";
 
 const navItems = [
-  { name: "Home", href: "#hero" },
+  { name: "Home", href: "#home" },
+  { name: "What I Do", href: "#what-i-do" },
   { name: "About", href: "#about" },
   { name: "Education", href: "#education" },
-  { name: "Career", href: "#career" },
+  { name: "Certification", href: "#career" },
   { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
@@ -121,7 +123,7 @@ export default function Header() {
 
             {/* Logo / Brand */}
             <a
-              onClick={() => handleScrollTo("#hero")}
+              onClick={() => handleScrollTo("#home")}
               className="cursor-pointer font-bold text-lg text-gray-800 dark:text-white"
             >
               <span className="text-sm font-bold tracking-wide">RAY<span className="text-pink-500">.</span></span>
@@ -134,17 +136,16 @@ export default function Header() {
                   <motion.li
                     key={item.name}
                     className="relative group text-sm font-medium text-gray-600 
-                    dark:text-gray-300 transition-colors"
+                    dark:text-gray-300 transition-colors duration-300"
                   >
                     <a
                       onClick={() => handleScrollTo(item.href)}
-                      className="cursor-pointer hover:text-pink-800
-                       dark:hover:text-pink-400"
+                      className="cursor-pointer transition-colors duration-300 hover:text-[#ef233c] dark:hover:text-[#ef233c]"
                     >
                       {item.name}
                     </a>
                     <motion.span
-                      className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-500 rounded-full"
+                      className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#ef233c] rounded-full"
                       initial={{ width: 0, x: "-50%" }}
                       whileHover={{ width: "100%" }}
                       transition={{ duration: 0.3 }}
@@ -188,13 +189,49 @@ export default function Header() {
               </AnimatePresence>
             </motion.button>
 
-            {/* Mobile Menu Button - Hamburger */}
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="md:hidden text-gray-800 dark:text-white"
-            >
-              <Menu size={24} />
-            </button>
+            {/* Mobile actions: theme toggle sits immediately left of the menu button */}
+            <div className="md:hidden flex items-center gap-2">
+              <motion.button
+                type="button"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="p-2 rounded-full text-gray-800 dark:text-white hover:bg-pink-100 dark:hover:bg-pink-900/40 transition-colors duration-300"
+                whileTap={{ scale: 0.9 }}
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                title={theme === "dark" ? "Light mode" : "Dark mode"}
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  {theme === "dark" ? (
+                    <motion.div
+                      key="mobile-moon"
+                      initial={{ rotate: -45, opacity: 0, scale: 0.7 }}
+                      animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                      exit={{ rotate: 45, opacity: 0, scale: 0.7 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Moon size={19} />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="mobile-sun"
+                      initial={{ rotate: 45, opacity: 0, scale: 0.7 }}
+                      animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                      exit={{ rotate: -45, opacity: 0, scale: 0.7 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Sun size={19} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.button>
+              <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="text-gray-800 dark:text-white p-1"
+                aria-label="Open navigation menu"
+              >
+                <Menu size={23} />
+              </button>
+            </div>
           </div>
 
           {/* Mobile Sidebar */}
@@ -234,7 +271,7 @@ export default function Header() {
                     >
                       <a
                         onClick={() => handleScrollTo(item.href)}
-                        className="text-4xl font-bold text-gray-800 dark:text-white cursor-pointer"
+                        className="text-4xl font-bold text-gray-800 dark:text-white cursor-pointer transition-colors duration-300 hover:text-[#ef233c] dark:hover:text-[#ef233c]"
                       >
                         {item.name}
                       </a>

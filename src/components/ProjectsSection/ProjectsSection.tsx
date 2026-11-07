@@ -4,8 +4,8 @@ import { ExternalLink, Github, ArrowUpRight, FolderKanban, ChevronLeft, ChevronR
 import "../AboutSection/PortfolioSections.css";
 
 const projects = [
-  { title: "Movies & TV Series Finder Website", category: "WEB APPLICATION", number: "01", description: "A responsive web application for exploring movies and TV series by integrating The Movie Database (TMDB) API. Features include search, favorites, actor and genre information, keywords, media galleries, and detail pages. Uses multiple REST API endpoints and asynchronous data fetching with Fetch API.", technologies: ["HTML", "CSS", "Vanilla JavaScript", "REST API", "Fetch API"], github: "https://github.com/RizkiAY/Absolute-Cinema", screenshot: "/project-screenshots/absolute-cinema.png" },
-  { title: "E-Commerce Website Development", category: "WEB APPLICATION", number: "02", description: "A web-based e-commerce application supporting product management, purchase transactions, user authentication, and order processing. Developed using HTML, CSS, PHP, MySQL, and Bootstrap.", technologies: ["HTML", "CSS", "PHP", "MySQL", "Bootstrap"], github: "https://github.com/RizkiAY/ecommerce-php", screenshot: "/project-screenshots/ecommerce.png" },
+  { title: "Absolute Cinema", category: "WEB APPLICATION", number: "01", description: "A responsive web application for exploring movies and TV series by integrating The Movie Database (TMDB) API. Features include search, favorites, actor and genre information, keywords, media galleries, and detail pages. Uses multiple REST API endpoints and asynchronous data fetching with Fetch API.", technologies: ["HTML", "CSS", "Vanilla JavaScript", "REST API", "Fetch API"], github: "https://github.com/RizkiAY/Absolute-Cinema", screenshot: "/project-screenshots/absolute-cinema.png" },
+  { title: "E-Commerce Website Development", category: "WEB APPLICATION", number: "02", description: "A responsive e-commerce web application for browsing and purchasing products through an intuitive online shopping experience. Features include product catalogs, search, shopping cart, checkout, order invoices, user authentication, profile management, address and bank account management, and order history. Built with Laravel, featuring database-driven product and order management.", technologies: ["HTML", "CSS", "PHP", "MySQL", "Bootstrap"], github: "https://github.com/RizkiAY/laravel-ecommerce", screenshot: "/project-screenshots/ecommerce.png" },
   { title: "Decision Support System for Agricultural Commodities", category: "ACADEMIC · DATA ANALYSIS", number: "03", description: "A decision support application to identify leading agricultural commodities based on production-area characteristics. Applies K-Means to cluster regions and TOPSIS to rank the most suitable commodities based on multiple criteria.", technologies: ["Python", "Gradio", "K-Means", "TOPSIS", "Data Processing"], screenshot: "/project-screenshots/agriculture-dss.png" },
 ];
 
@@ -46,19 +46,13 @@ export const ProjectsSection = () => {
                 opacity: 1,
                 x: 0,
                 scale: 1,
-                transition: {
-                  duration: 0.1,
-                  ease: "easeOut"
-                },
+                transition: { duration: 0.15, ease: [0.22, 1, 0.36, 1] },
               },
               exit: (direction: number) => ({
                 opacity: 0,
                 x: direction > 0 ? -90 : 90,
                 scale: 1,
-                transition: {
-                  duration: 0.1,
-                  ease: "easeIn"
-                },
+                transition: { duration: 0.15, ease: [0.4, 0, 1, 1] },
               }),
             }}
             initial="enter"

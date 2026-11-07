@@ -16,10 +16,10 @@ import {
   User,
   GraduationCap,
   Award,
-  Code2,
   FolderKanban,
-  Mail,
   Heart,
+  Code2,
+  Mail,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -79,7 +79,7 @@ function App() {
     },
     {
       icon: <Award size={24} />,
-      label: "Certifications",
+      label: "Certification",
       onClick: () => scrollToSection("career"),
     },
     {
@@ -138,13 +138,14 @@ function App() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 100, opacity: 0 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[999]"
+              className="fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 z-[999] max-w-[calc(100vw-16px)]"
             >
               <Dock
                 items={dockItems}
                 position="bottom"
                 magnification={70}
                 baseItemSize={50}
+                className="portfolio-dock"
               />
             </motion.div>
           )}

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Code2, Users, Languages } from "lucide-react";
 
-const technicalSkills = ["HTML", "CSS", "JavaScript", "API", "React", "Vue.js", "Node.js", "PHP", "Python", "Java", "C", "MySQL", "Bootstrap", "Gradio", "Microsoft Office"];
+const technicalSkills = ["HTML", "CSS", "JavaScript", "API", "React", "Vue.js", "Node.js", "PHP", "Python", "Java", "C", "PostgreSQL", "MySQL", "Laravel", "Bootstrap", "Microsoft Office"];
 const softSkills = ["Time Management", "Communication", "Detail-oriented", "Problem Solving", "Adaptive"];
 
 export default function ProfessionalProfile() {
