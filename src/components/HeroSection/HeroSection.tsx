@@ -72,7 +72,15 @@ export const HeroSection = () => {
           </svg>
 
           <div className="ray-float-note ray-note-top"><Sparkles size={14} /><span>Curious by nature</span></div>
-          <div className="ray-float-note ray-note-bottom"><span className="ray-note-pulse" /><span>Turning ideas into reality</span></div>
+          <div className="ray-float-note ray-note-bottom"><svg
+            className="ray-idea-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M9 18h6M10 21h4M8.2 14.5a7 7 0 1 1 7.6 0c-.9.6-1.4 1.4-1.6 2.5h-4.4c-.2-1.1-.7-1.9-1.6-2.5Z"/>
+          </svg>
+          <span>Turning ideas into reality</span></div>
 
           <div
             ref={cardRef}
@@ -121,7 +129,7 @@ export const HeroSection = () => {
           <div className="ray-card-hint">CLICK THE CARD TO FLIP · MOVE TO INTERACT</div>
         </motion.div>
       </div>
-      <div className="ray-hero-foot"><span>SCROLL TO EXPLORE</span><span className="ray-foot-line" /><span>01 / 05</span></div>
+      <div className="ray-hero-foot"><span>SCROLL TO EXPLORE</span><span className="ray-foot-line" /><span>01 / 07</span></div>
     </section>
   );
 };
