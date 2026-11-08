@@ -48,7 +48,7 @@
   font-size: 12px; font-weight: 650; text-decoration: none;
   transition: color .28s ease, gap .28s ease, transform .28s ease;
 }
-.ray-text-link:hover { color: var(--ray-accent); gap: 13px; transform: translateY(-2px); }
+.ray-text-link:hover { color: var(--ray-accent); gap: -2px; transform: translateY(-2px); }
 .ray-socials { display: flex; align-items: center; gap: 10px; margin-top: 43px; }
 .ray-socials a { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(150,140,160,.25); border-radius: 50%; color: var(--ray-muted); transition: .2s; }
 .ray-socials a:hover { color: var(--ray-accent); border-color: var(--ray-accent); transform: translateY(-3px); }
@@ -66,7 +66,7 @@
 .ray-card-scene.is-flipped .ray-business-card { transform: rotateY(180deg); }
 .ray-card-face { position: absolute; inset: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.22); border-radius: 17px; padding: 23px 25px; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 28px 70px rgba(35,22,44,.22); }
 .ray-card-front { background: radial-gradient(circle at 80% 10%, rgba(235,130,180,.28), transparent 34%), linear-gradient(135deg, #272331 0%, #17151f 72%, #302333 100%); color: #fff; }
-.ray-card-back { transform: rotateY(180deg); background: linear-gradient(145deg, #f6e9f0, #fff9fc 60%, #eadce8); color: #28222c; }
+.ray-card-back { transform: rotateY(180deg); background: linear-gradient(145deg, #f7daea, #fff9fc 60%, #e8cde4); color: #28222c; }
 .ray-card-topline { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 800; letter-spacing: .1em; }
 .ray-pink { color: var(--ray-accent); }
 .ray-card-index { font-size: 8px; letter-spacing: .17em; opacity: .58; font-weight: 600; }
