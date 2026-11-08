@@ -76,7 +76,7 @@
 .ray-card-bottom h2 { margin: 0; font-size: 17px; letter-spacing: -.035em; }
 .ray-card-bottom p { margin: 6px 0 0; color: #d98bb0; font-size: 8px; letter-spacing: .2em; font-weight: 700; }
 .ray-card-mark { color: var(--ray-accent); font-size: 28px; }
-.ray-card-shine { position: absolute; width: 70%; height: 160%; top: -35%; left: -90%; transform: rotate(28deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.09), transparent); animation: ray-shine 7s ease-in-out infinite; }
+.ray-card-shine { position: absolute; width: 70%; height: 160%; top: -35%; left: -90%; transform: rotate(28deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.09), transparent); animation: ray-shine 4s ease-in-out infinite; }
 @keyframes ray-shine { 0%, 35% { left: -90%; } 65%, 100% { left: 140%; } }
 .ray-back-content { position: absolute; top: 28%; left: 25px; right: 25px; }
 .ray-back-content p { font-size: 21px; line-height: 1.3; font-weight: 750; letter-spacing: -.04em; }
@@ -84,9 +84,9 @@
 .ray-card-back-footer { position: absolute; bottom: 23px; left: 25px; right: 25px; display: flex; justify-content: space-between; color: #9b8295; font-size: 8px; font-weight: 700; letter-spacing: .13em; }
 .ray-float-note { position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 9px; padding: 11px 14px; border: 1px solid rgba(160,145,165,.2); border-radius: 9px; background: color-mix(in srgb, var(--background, #fff) 76%, transparent); backdrop-filter: blur(14px); box-shadow: 0 12px 35px rgba(30,20,40,.08); color: var(--ray-muted); font-size: 10px; }
 .dark .ray-float-note { background: rgba(30,27,37,.76); }
-.ray-note-top { top: 72px; right: 0; transform: rotate(5deg); }
+.ray-note-top { top: 90px; right: 0; transform: rotate(5deg); }
 .ray-note-top svg { color: var(--ray-accent); }
-.ray-note-bottom { bottom: 72px; left: -4px; transform: rotate(-4deg); }
+.ray-note-bottom { bottom: 65px; left: -4px; transform: rotate(-4deg); }
 .ray-flip-control { position: absolute; z-index: 4; bottom: 22px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(150,140,160,.28); border-radius: 99px; padding: 9px 14px; background: transparent; color: var(--ray-muted); font: inherit; font-size: 10px; cursor: pointer; transition: .2s; }
 .ray-flip-control:hover { border-color: var(--ray-accent); color: var(--ray-accent); }
 .ray-card-hint { position: absolute; bottom: -5px; color: var(--ray-muted); font-size: 8px; letter-spacing: .2em; opacity: .65; }
@@ -123,7 +123,7 @@
   .ray-back-content p { font-size: 18px; }
   .ray-card-back-footer { left: 19px; right: 19px; bottom: 18px; font-size: 7px; }
   .ray-note-top { top: 28px; right: 0; }
-  .ray-note-bottom { bottom: 52px; left: 0; }
+  .ray-note-bottom { bottom: 22px; left: 0; }
   .ray-float-note { font-size: 9px; padding: 9px 11px; }
   .ray-flip-control { bottom: 5px; }
   .ray-card-hint { bottom: -20px; font-size: 7px; }
@@ -140,11 +140,11 @@
 .ray-profile-photo span { color: #fff; font-size: 21px; font-weight: 800; letter-spacing: -.08em; }
 .ray-card-scene { cursor: pointer; outline: none; }
 .ray-card-scene:focus-visible { border-radius: 17px; outline: 2px solid var(--ray-accent); outline-offset: 7px; }
-.ray-card-hint { bottom: -28px; white-space: nowrap; }
+.ray-card-hint { bottom: 128px; white-space: nowrap; }
 @media (max-width: 520px) {
   .ray-profile-photo { width: 61px; height: 61px; top: 48px; right: 20px; }
   .ray-profile-photo span { font-size: 17px; }
-  .ray-card-hint { bottom: -22px; }
+  .ray-card-hint { bottom: 74px; }
 }
 
 /* Available Status Pulse Animation */
