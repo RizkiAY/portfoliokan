@@ -32,10 +32,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
         >
-          <div className="ray-status">
-            <span className="ray-status-dot pulse"></span>
-            Available for Opportunities
-          </div>
+          <div className="ray-eyebrow"><span className="ray-status-dot" /> AVAILABLE FOR OPPORTUNITIES</div>
           <p className="ray-kicker">HELLO, I'M RIZKI ADHATILLA YUSA</p>
           <h1>Building digital<br /><span>experiences</span> that matter.</h1>
           <p className="ray-hero-description">
